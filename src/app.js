@@ -1,3 +1,4 @@
+require('dotenv').config()
 const compression = require('compression')
 const express = require('express')
 const { default: helmet } = require('helmet')
@@ -11,16 +12,16 @@ app.use(compression())
 
 // init db
 require('./dbs/init.mongodb')
-const { checkOverload } = require('./helpers/check.connect')
-checkOverload()
+// const { checkOverload } = require('./helpers/check.connect')
+// checkOverload()
 
 // init routes
 app.get('/', (req, res, next) => {
-    const strCompress = 'Hello Fantipjs'
+    // const strCompress = 'Hello Fantipjs'
 
     return res.status(200).json({
         message: 'Welcome Fantipjs!',
-        metadata: strCompress.repeat(100000)
+        // metadata: strCompress.repeat(100000)
     })
 })
 
